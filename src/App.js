@@ -16,8 +16,11 @@ const stateMachine = {
 const reducer = (currentState, event) => stateMachine.states[currentState].on[event] || stateMachine.initial;
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, stateMachine.initial);
+
   return (
-    <div className="App">
+    <div>
+      <button onClick={() => dispatch('next')}>{state}</button>
     </div>
   );
 }
